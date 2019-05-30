@@ -25,7 +25,6 @@ func (a *App) uploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	s.Filename = filename
 	s.Mimetype = mimetype
-	s.Url = *url + filename
 
 	defer file.Close()
 

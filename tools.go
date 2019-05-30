@@ -36,5 +36,12 @@ func (s *props) fileProps(filepath string) error {
 
 	s.Sha1 = hex.EncodeToString(h.Sum(nil))
 
+	err = os.Rename(filepath, *storage + s.Sha1)
+	if err != nil {
+		return err
+	}
+
+	s.Url = *url + s.Sha1
+
 	return nil
 }
